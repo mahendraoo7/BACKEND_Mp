@@ -1,0 +1,26 @@
+input[type="text"] {
+    width: 400px;
+    padding: 10px;
+    font-size: 16px;
+    background-color:rgb(198, 192, 185);
+    color:rgb(149, 78, 215);
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  h1 {
+
+    background-color: skyblue;
+    width: 220px;
+  }

@@ -1,0 +1,24 @@
+h1{
+
+    text-shadow:rgb(from color r g b);
+    color: blue;
+    text-align:left;
+
+}
+#cs{
+
+    color:darksalmon;
+    font-size:medium;
+    text-align: center;
+    background-color:green;
+    height: 28px;
+    width: 70px;
+
+}   
+#input{
+
+    background-color :thistle;
+    color: aqua;
+    width: 220px;
+    height: 20px;
+}
