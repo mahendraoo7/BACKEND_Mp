@@ -1,0 +1,15 @@
+var number = [1, 3, 4, 5, 3];
+number.push(456, 43);
+console.log(number);
+// let a: number = 10227;
+// console.log(a);
+// let a : string[] = ["Hello"];
+// // let a : Array<string> = ["Hi"];
+// console.log(a);
+var a;
+var x;
+x = 101, "Hello";
+console.log(x);
+a[0] = "skill";
+a[20] = "101";
+console.log(a);

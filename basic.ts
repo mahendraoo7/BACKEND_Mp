@@ -1,3 +1,5 @@
-var z = 12;
+var z=13;
+ var r= 34;
 
-console.log(z);
+
+console.log(z+r);
