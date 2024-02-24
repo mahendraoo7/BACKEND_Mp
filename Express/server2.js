@@ -9,10 +9,10 @@ server.get("/" ,(req,res) => {
     res.end("Welcome to Express.Js");
 });
 server.put("/" ,(req,res) => {
-    res.status(400).json({massage : "Put Call Method"});
+    res.status(400).json({"massage" : "Put Call Method"});
 });
 server.patch("/" ,(req,res) => {
-    res.sendFile(path.join(--__dirname, "abc.txt"));
+    res.sendFile(path.join(__dirname,"abc.txt"));
 });
 server.delete("/" ,(req,res) => {
     res.sendStatus(201);
