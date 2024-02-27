@@ -1,7 +1,8 @@
 const express =require("express")
 const app = express();
-const port = 7070;
+const port = 7777;
 const morgan = require('morgan');
+const path = require('path');
 
 
 // MIDDLEWARE
@@ -22,6 +23,10 @@ let myFun = (req,res,next) => {
 // app.use(myFun);  // Application leval middleware
 
 app.use(express.json());  // Built-In
+app.use(express.urlencoded({extended: true}));
+app.use('/hello',express.static(path.join(__dirname, 'Express')));
+
+
 
 app.use(morgan('dev'));
 app.get('/',myFun, (req,res) => {
@@ -29,9 +34,11 @@ app.get('/',myFun, (req,res) => {
 });
 
 app.post('/',(req,res) => {
+    console.log(req.body);
     res.send ("Post Method ");
 });
-app.listen(7070,() => {
-    console.log("Server start at port http://localhost:7070");
-});
 
+app.listen(port , () => {
+    console.log(`Server start at port http://localhost:7777`);  
+});
+  
