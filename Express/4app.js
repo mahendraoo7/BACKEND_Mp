@@ -2,7 +2,7 @@
 
 const express =require("express")
 const app = express();
-const port = 9090;
+const port = 8888;
 const morgan = require('morgan');
 const products = require('./product.json');
 
@@ -21,7 +21,7 @@ app.post('/products',(req,res) => {
     res.status(201).json({ message : "Product Is Added...."});
 });
 
-app.get('/products',(req,res) => {
+app.get('/products',( req ,res) => {
     res.status(201).json(products);
 });
 
@@ -43,11 +43,11 @@ app.put('/products/replace-product',(req,res) => {
 
 });
 //  Update Single Product
-app.patch('products/update-product', (req,res) => {
-    const id = req.query.id;
+app.patch('/products/update-product', (req,res) => {
+    const id = +req.query.id;
     let productIndex = products.findIndex((item) => item.id === id) 
     let product = products[productIndex];
-    products.splice(productIndex,1 ,{ ...product, ...req.body});
+    let item = products.splice(productIndex,1 ,{ ...product, ...req.body});
     // console.log(products);
     res.status(200).json({ message : ' Products update SucessFully...'});
 
@@ -55,17 +55,16 @@ app.patch('products/update-product', (req,res) => {
 
 // Delete Single Producta
 
-app.delete('products/delete-product', (req,res) => {
-    const id = req.query.id;
+app.delete('/products/delete-product', (req,res) => {
+    const id = +req.query.id;
     let productIndex = products.findIndex((item) => item.id === id) 
     let product = products[productIndex];
     products.splice(productIndex,1);
     // console.log(products);
     res.status(200).json({ message : ' Products Delete SucessFully...'});
-
 });
 
 app.listen(port,()=> {
 
-    console.log("Server start at port http://localhost:9090");
+    console.log("Server start at port http://localhost:8888");
 })
