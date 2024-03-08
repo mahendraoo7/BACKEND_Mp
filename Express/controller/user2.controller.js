@@ -17,7 +17,7 @@ exports.addUser = async (req , res) =>  {
         });
         newUser.save();
         console.log(password);
-        res.status(201).json ({user : newUser, Message : 'new User Added'});
+        res.status(201).json({user : newUser, Message : 'new User Added'});
     } catch (error)
       {
         console.log(error);
@@ -62,16 +62,17 @@ exports.updateUser = async (req,res) => {
     // let user await User.findById(userId);
 
     if(!user){
-      return req.status(404).json({ Message : "User Not Found"});
+      return res.status(404).json({ Message : "User Not Found"});
 
     }
-    // user = await user. findByIdAndUpdate(user._id {$set : {...req.body} },{new : true});
-    user = await user. findByIdAndUpdate({id: user.id}, {$set : {...req.body} },{new : true});
+    // user = await user. findOneAndUpdate({id:user._id },{$set : {...req.body} },{new : true}); 
+    user = await User.findOneAndUpdate({_id:user._id}, { $set: { ...req.body}}, { new : true });
+    // user = await user.findByIdAndUpdate({_id: user.id}, {$set : {...req.body} },{new : true});
     res.status(200).json(user);
 
   }catch(error){
       console.log(error);
-      res.status(500).josn ({ Message : "Internal Server Error"});
+      res.status(500).json ({ Message : "Internal Server Error"});
   }
 };
 
@@ -82,15 +83,16 @@ exports.deleteUser = async (req,res) => {
     let user = await User.findById(userId);
 
     if(!user){
-      return req.status(404).json({ Message : "User Not Found"});
+      return res.status(404).json({ Message : "User Not Found"});
 
     }
-    // user = await user. findByIdAndUpdate(user._id );
-    user = await user. findByIdAndUpdate({id: user._id},{isDelete : true },{new : true});
+    // user = await User. findByIdAndUpdate(user._id );
+    // user = await User.findOneAndUpdate({_id:user._id},{isDelete : true },{new : true});
+    user = await User.findOneAndUpdate({ _id: user._id}, { isDelete: true}, { new : true });
     res.status(200).json({user, message : 'user deleted'}); 
 
   }catch(error){
       console.log(error);
-      res.status(500).josn ({ Message : "Internal Server Error"});
+      res.status(500).json ({ Message : "Internal Server Error"});
   }
 };  
