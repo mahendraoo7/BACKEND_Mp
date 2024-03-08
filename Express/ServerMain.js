@@ -17,11 +17,14 @@ main()
 app.use(express.json());
 app.use(morgan('dev'));
 
-const userRoutes= require('./Routes/user2.routes');
-app.use('/api/user',userRoutes)
+// const userRoutes= require('./Routes/user2.routes');
+// app.use('/api/user',userRoutes)
 
 // const productRoutes = require('./Routes/product.routes');
 // app.use('/products',productRoutes);
+
+const product2Routes = require('./Routes/product2.routes');
+app.use('/api/products',product2Routes);
 
 // const userRoutes = require('./Routes/user.routes');
 // app.use('/users',userRoutes);

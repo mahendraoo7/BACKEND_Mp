@@ -2,8 +2,6 @@ const mongoose  = require('mongoose');
 
 const userSchema = mongoose.Schema ({
 
-
-
     firstName : String,
     lastName : {
         type : String
@@ -15,11 +13,15 @@ const userSchema = mongoose.Schema ({
     email : {
         type : String
     },
-    passworld : {
+    password : {
         type : String
     },
     age : {
         type : String 
+    },  
+    isDelete : {
+        type :Boolean,
+        default : false 
     }
 });
 
