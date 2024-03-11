@@ -1,14 +1,17 @@
 const express = require('express');
 const userRoutes = express.Router();
-const {addUser,
+const {verifyToken} = require('../helpers/verifyToken')
+const {registerUser,
+    loginUser,
     getAllUser,
     getUser,
     updateUser,
     deleteUser} = require('../controller/user2.controller');
 
-userRoutes.post('/add-user',addUser);
-userRoutes.get('/get-all-user',getAllUser);
-userRoutes.get('/get-user',getUser);
+userRoutes.post('/register-user',registerUser);
+userRoutes.post('/login-user',loginUser);
+userRoutes.get('/get-all-user',verifyToken,getAllUser);
+userRoutes.get('/get-user',verifyToken,getUser);
 userRoutes.put('/update-user',updateUser);
 userRoutes.delete('/delete-user',deleteUser);
 
