@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node app2.js",
-    "dev": "nodemon serverMain.js"
+    "dev": "nodemon AppMain.js"
   },
   "author": "Mahendra Purohit",
   "license": "ISC",

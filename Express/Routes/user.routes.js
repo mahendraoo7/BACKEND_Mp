@@ -1,30 +1,21 @@
 const express = require('express');
-const userRoutes = express.Router();
-const { adduser,
-       deleteUser,
-       getAllUser,
-       getuser,
-       replaceuser,
-       updateuser,
-      } = require('../controller/user.controller');
+const user2Routes = express.Router();
+const {verifyToken} = require('../helpers/verifyToken')
+const {registerUser,
+    loginUser,
+    getAllUser,
+    getUser,
+    updateUser,
+    deleteUser} = require('../controller/user.controller');
 
-        // Create user
-    userRoutes.post('/',adduser);
+user2Routes.post('/register-user',registerUser);
+user2Routes.post('/login-user',loginUser);
+user2Routes.get('/get-all-user',verifyToken,getAllUser);
+user2Routes.get('/get-user',verifyToken,getUser);
+user2Routes.put('/update-user',updateUser);
+user2Routes.delete('/delete-user',deleteUser);
 
-        // Get All user
-    userRoutes.get('/',getAllUser);
+module.exports = user2Routes ; 
 
-        // Get Single user
-    userRoutes.get('/single-user',getuser);
 
-        // Replace Single user
-    userRoutes.get('/replace-user',replaceuser);
-      
-        // Update SIngle user
-    userRoutes.get('/update-user',updateuser);
-
-        // delete SIngle user
-    userRoutes.get('/delete-user',deleteUser);
-
-    module.exports = userRoutes;
 

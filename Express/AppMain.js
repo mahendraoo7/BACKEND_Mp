@@ -21,11 +21,11 @@ app.use(morgan('dev'));
 const cartRoutes = require('./Routes/cart.routes');
 app.use('/api/cart',cartRoutes);
 
-const user2Routes= require('./Routes/user2.routes');
-app.use('/api/user',user2Routes);    
+const userRoutes= require('./Routes/user.routes');
+app.use('/api/user',userRoutes);    
 
-const product2Routes = require('./Routes/product2.routes');
-app.use('/api/products',product2Routes);
+const productRoutes = require('./Routes/product.routes');
+app.use('/api/products',productRoutes);
 
 app.listen(port,()=> {
     console.log(`Server start at http://localhost:${port}`);
