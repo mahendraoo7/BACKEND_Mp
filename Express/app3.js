@@ -11,7 +11,7 @@ const products = require('./product.json');
 app.use(express.json());  // Built-In
 app.use(morgan('dev'));
 
-//   End- point - CRUD
+//  End- point - CRUD
 
 app.post('/products',(req,res) => {
     // console.log(req.body);   

@@ -1,8 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const port = process.env.PORT;
 const morgan = require('morgan');
-require('dotenv').config();
 
 const mongoose = require('mongoose');
 // Database connection
@@ -18,8 +18,11 @@ main()
 app.use(express.json());
 app.use(morgan('dev'));
 
-const userRoutes= require('./Routes/user2.routes');
-app.use('/api/user',userRoutes);    
+const cartRoutes = require('./Routes/cart.routes');
+app.use('/api/cart',cartRoutes);
+
+// const userRoutes= require('./Routes/user2.routes');
+// app.use('/api/user',userRoutes);    
 
 // const productRoutes = require('./Routes/product.routes');
 // app.use('/products',productRoutes);
@@ -31,5 +34,5 @@ app.use('/api/user',userRoutes);
 // app.use('/users',userRoutes);
 
 app.listen(port,()=> {
-    console.log('server start at : $PORT{}');
+    console.log(`Server start at http://localhost:${port}`);
 })
