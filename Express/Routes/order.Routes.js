@@ -1,11 +1,12 @@
 const express = require('express');
-const orderRoutes = express.Routes();
+const orderRoutes = express.Router()
 const { verifyToken} = require('../helpers/verifyToken');
 const {
-    newOrder 
-}  =require( '../controller/order.controller');
+    newOrder,
+    getAllOrders 
+}  =require('../controller/order.controller');
 
-orderRoutes.post('add-order',verifyToken , newOrder);
+orderRoutes.post('/add-order',verifyToken , newOrder);
+orderRoutes.get('/get-all-order',verifyToken, getAllOrders);
 
-
-module.exports = orderRoutes ;
+module.exports = orderRoutes;

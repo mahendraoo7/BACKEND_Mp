@@ -41,7 +41,7 @@ exports.getProduct = async(req, res) => {
     }
 };
 
-exports.updateProduct = async(req, res) => {
+exports.updateProduct = async(req,res) => {
     try {
         let productId = req.query.productId;
         let product = await Product.findById(productId);

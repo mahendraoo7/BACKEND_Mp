@@ -14,12 +14,12 @@ exports.verifyToken = async (req,res,next) => {
        return res.status(404).json({message : 'Unauthorization'});
      else {
         let {userId} = jwt.verify(token, 'SkillQode');
-        // console.log(userId)
+        console.log(userId)
         let user = await User.findById(userId);
-        // console.log(user);
+        console.log(user);
         if(user)
         {
-          req.user = user ;
+          req.user = user;
           next();
         }else 
            return res.status(404).json({ message : 'Invalid User'});

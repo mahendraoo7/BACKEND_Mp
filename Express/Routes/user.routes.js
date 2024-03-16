@@ -1,5 +1,5 @@
 const express = require('express');
-const user2Routes = express.Router();
+const userRoutes = express.Router();
 const {verifyToken} = require('../helpers/verifyToken')
 const {registerUser,
     loginUser,
@@ -8,14 +8,14 @@ const {registerUser,
     updateUser,
     deleteUser} = require('../controller/user.controller');
 
-user2Routes.post('/register-user',registerUser);
-user2Routes.post('/login-user',loginUser);
-user2Routes.get('/get-all-user',verifyToken,getAllUser);
-user2Routes.get('/get-user',verifyToken,getUser);
-user2Routes.put('/update-user',updateUser);
-user2Routes.delete('/delete-user',deleteUser);
+userRoutes.post('/register-user',registerUser);
+userRoutes.post('/login-user',loginUser);
+userRoutes.get('/get-all-user',verifyToken,getAllUser);
+userRoutes.get('/get-user',verifyToken,getUser);
+userRoutes.put('/update-user',updateUser);
+userRoutes.delete('/delete-user',deleteUser);
 
-module.exports = user2Routes ; 
+module.exports = userRoutes ; 
 
 
 
