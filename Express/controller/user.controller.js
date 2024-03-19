@@ -40,7 +40,7 @@ exports.loginUser = async (req , res) =>  {
       if(!checkPassword) {
         return res.status(400).json({ message : 'Password Is Not Match...'})
       }
-      let token = jwt.sign({ userId : user._id}, 'SkillQode');
+      let token = jwt.sign({ userId : user._id}, 'MAHENDRA_o7');
       res.status(200).json({ token, message : 'Login SucessFully'})
      }catch (error)
      {
