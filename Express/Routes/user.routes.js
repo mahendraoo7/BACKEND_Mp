@@ -19,7 +19,6 @@ userRoutes.put('/update-user',updateUser);
 userRoutes.delete('/delete-user',deleteUser);
 
 userRoutes.post('/add-user', upload.single('profileImage'),addNewUser);
-
 module.exports = userRoutes;
 
 
