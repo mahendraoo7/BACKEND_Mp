@@ -6,24 +6,24 @@ const morgan = require('morgan');
 
 // MIDDLEWARE
 
-let myFun = (req,res,next) => {
-    console.log(req.query);
+// let myFun = (req,res,next) => {
+//     console.log(req.query);
 
-    if((req.query.age) >= 18 ) {
+//     if((req.query.age) >= 18 ) {
 
-        next();
+//         next();
 
-    } else 
-    {
-        res.send("Sorry! You have Under below 18");
-    }
-}
+//     } else 
+//     {
+//         res.send("Sorry! You have Under below 18");
+//     }
+// }
 
 // app.use(myFun);  // Application leval middleware
 
 app.use(express.json());  // Built-In
 app.use(morgan('dev'));
-app.get('/',myFun, (req,res) => {
+app.get('/',(req,res) => {
     res.send("welcome to Express.js");
 });
 
@@ -32,6 +32,6 @@ app.post('/',(req,res) => {
 });
 
 app.listen(port, () => {
-    console.log("Server start at port http://localhost:7070");
+    console.log(`Server start at port http://localhost:${port}`);
 });
 
