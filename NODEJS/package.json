@@ -4,7 +4,10 @@
     "fastify": "^5.2.1",
     "http": "^0.0.1-security",
     "koa": "^2.15.3",
+    "micro": "^10.0.1",
     "nodemon": "^3.1.9",
+    "socket": "^0.14.40",
+    "socketio": "^1.0.0",
     "yarn": "^1.22.22"
   },
   "scripts": {

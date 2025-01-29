@@ -1,28 +1,26 @@
-const Fastisy = require('fastify');
+const Fastify = require('fastify');
 
-const fastify = new Fastisy({
-    logger : true,
+const fastify = new Fastify({
+    logger: true,
 });
 
-
-fastify.get('/', (req , res) => {
+fastify.get('/', (request , replay ) => {
     return {
-        message : "hello "
+        Message : "Hello world"
     }
-})
+} )
 
-const Start = async() => {
-    const PORT = process.env.PORT || 4000;
+const start = async () => {
+    const port = process.env.PORT || 4000;
 
     try {
-        await fastify.listen({ port : PORT});
-        console.log(`Server Start at http://localhost:${PORT}`)    
+            await fastify.listen({port : port})
+            console.log(`server start at http://localhost:${port}`);
+        
     } catch (error) {
-        fastify.logger.error(error);
+        fastify.log.error(error);
         process.exit(1);
     }
-    
-};
+}
 
-Start();
-
+start();

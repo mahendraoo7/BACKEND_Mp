@@ -5,6 +5,6 @@ const server = http.createServer((req, res) => {
      res.end('hello world');
 })
 
-server.listen(port ,() => {
-    console.log(`server start at http://localhost:${port}`)
+server.listen(port ,(req, res) => {
+    console.log(`Server Start at http://localhost:${port}`)
 })
